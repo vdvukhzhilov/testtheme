@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./fonts.css";
+@import "./theme.css";
+@import "./typography.css";
+@import "./custom-utilities.css";
+@import "./hs-editor-cls.css";
+
+@source "../components";
+@source "../templates";
+@source "../ui";
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  * {
+    @apply focus:not-focus-visible:outline-none focus-visible:allure-focus-ring outline-transparent;
+  }
+  body {
+    @apply typography-text-md-regular text-primary-900 antialiased allure-bg-primary;
+  }
+}

@@ -1,0 +1,52 @@
+<!--
+  templateType: none
+-->
+<!doctype html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% if page_meta.html_title or pageTitle %}
+      <title>{{ page_meta.html_title|sanitize_html("STRIP") or pageTitle|sanitize_html("STRIP") }}</title>
+    {% endif %}
+    {% if brand_settings.favicon.src %}
+      <link rel="shortcut icon" href="{{ brand_settings.favicon.src|escape_url }}" />
+    {% endif %}
+
+    {# This is css file with tailwind classes #}
+    {{ require_css(get_asset_url("../../assets/dist/main.css")) }}
+
+    <meta name="description" content="{{ page_meta.meta_description }}" />
+    {# 
+      To see a full list of what is included via standard_footer_includes
+      please reference this article:
+      https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables
+    #}
+    {{ standard_header_includes }}
+  </head>
+  {# .theme-overrides is used to apply style field css variables #}
+  <body
+    class="text-primary-900 text-md-regular body-wrapper {{ builtin_body_classes }} theme-overrides"
+  >
+    <header class="sticky top-0 z-10 empty:hidden">
+      {% block header_sticky %}
+      {% endblock header_sticky %}
+    </header>
+    <header class="empty:hidden">
+      {% block header %}
+      {% endblock header %}
+    </header>
+    {% block body %}
+    {% endblock body %}
+    <footer class="empty:hidden">
+      {% block footer %}
+      {% endblock footer %}
+    </footer>
+    {# 
+      To see a full list of what is included via standard_footer_includes
+      please reference this article:
+      https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables
+    #}
+    {{ standard_footer_includes }}
+  </body>
+</html>

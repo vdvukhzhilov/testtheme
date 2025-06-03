@@ -1,0 +1,153 @@
+diff --git a/node_modules/@hubspot/cms-dev-server/dist/index.js b/node_modules/@hubspot/cms-dev-server/dist/index.js
+index ab4c216..a1903d3 100644
+--- a/node_modules/@hubspot/cms-dev-server/dist/index.js
++++ b/node_modules/@hubspot/cms-dev-server/dist/index.js
+@@ -1252,13 +1252,6 @@ function packagePath(metaUrl, projectPath) {
+       path2.resolve(path2.dirname(url.fileURLToPath(metaUrl)), projectPath)
+     );
+   }
+-  const parentDirPath = normalizePath(path2.dirname(url.fileURLToPath(metaUrl)));
+-  const subPath = parentDirPath.replace(/^.+cms-dev-server\/src\//, "");
+-  const subPathParentDirs = subPath.split("/").map(() => "..");
+-  return path2.resolve(
+-    path2.dirname(url.fileURLToPath(metaUrl)),
+-    path2.join(...subPathParentDirs, projectPath)
+-  );
+ }
+ 
+ // src/lib/moduleGraph.ts
+@@ -3365,6 +3358,7 @@ var moduleRouteHandler = async (request2, response) => {
+     ].join("/")
+   );
+   let fieldOverrides = null;
++  console.log(`request2.query`, request2.query)
+   if (request2.query.fields) {
+     try {
+       if (typeof request2.query.fields === "string") {
+diff --git a/node_modules/@hubspot/cms-dev-server/dist/run.js b/node_modules/@hubspot/cms-dev-server/dist/run.js
+index 61ec66d..efca24b 100755
+--- a/node_modules/@hubspot/cms-dev-server/dist/run.js
++++ b/node_modules/@hubspot/cms-dev-server/dist/run.js
+@@ -802,13 +802,6 @@ function packagePath(metaUrl, projectPath) {
+       path2.resolve(path2.dirname(url.fileURLToPath(metaUrl)), projectPath)
+     );
+   }
+-  const parentDirPath = normalizePath(path2.dirname(url.fileURLToPath(metaUrl)));
+-  const subPath = parentDirPath.replace(/^.+cms-dev-server\/src\//, "");
+-  const subPathParentDirs = subPath.split("/").map(() => "..");
+-  return path2.resolve(
+-    path2.dirname(url.fileURLToPath(metaUrl)),
+-    path2.join(...subPathParentDirs, projectPath)
+-  );
+ }
+ 
+ // ../cms-js-internal/dist/types-BxnmA6nH.js
+@@ -2348,13 +2341,19 @@ import { traverseFieldsJSON } from "@hubspot/cms-components/fields";
+ function getFieldValuesForModule(fieldsJSON, fieldOverrides = {}) {
+   const props = {};
+   traverseFieldsJSON(fieldsJSON, fieldOverrides, (fieldPathArray, value) => {
++    // console.log(`[getFieldValuesForModule] fieldPathArray`, fieldPathArray)
++    // console.log(`[getFieldValuesForModule] value`, value)
++    // if (fieldPathArray.includes("menu") && value === 'default') {
++      // console.trace("menu is default")
++    // }
+     setIn(props, fieldPathArray, value);
+   });
++
++  // console.log(`[getFieldValuesForModule] fieldsJSON`, fieldsJSON)
++  // console.log(`[getFieldValuesForModule] fieldOverrides`, fieldOverrides)
+   return props;
+ }
+ 
+-// src/lib/renderModule.ts
+-var VALIDATE_FIELDS_ENDPOINT = "/designmanager/v1/modules/validate-fields";
+ var VALIDATE_META_ENDPOINT = "/designmanager/v1/modules/validate-meta";
+ var { filterToModuleDataDepsIncludedIn, getModuleDataDependecyTypeFrom } = cmsComponents2;
+ var handleValidationApiError = (result, type, renderContext, requestedModulePath) => {
+@@ -2443,6 +2442,7 @@ var lookForModuleInFolder2 = async (modulePath, viteServer) => {
+ };
+ async function renderModule(viteServer, requestedModulePath, moduleProps, pageUrl, basePath, environmentConfig, renderOptions) {
+   console.log("Rendering module", requestedModulePath);
++  // console.trace(`Rendering module ${requestedModulePath}`)
+   const {
+     fieldValues: fieldOverrides = {},
+     hublParameters,
+@@ -3152,6 +3152,7 @@ var renderComponentForPlaceholder = (indexForThisRender, localRenderPlaceholder,
+     hsProjectJsonProjectName,
+     webRootProjectComponent
+   );
++  // console.dir(localRenderPlaceholder.json.props, { depth: null })
+   const localRenderPlaceholderProps = localRenderPlaceholder.json.props;
+   const [
+     __projectIdentifier,
+@@ -3538,7 +3539,7 @@ async function renderLocalProjectModulePreview(moduleName, authedPortalId, authe
+   const Component = componentModule.Component;
+   const fields = componentModule.fields;
+   const meta = componentModule.meta;
+-  const hublDataTemplate = componentModule.hublDataTemplate;
++  let hublDataTemplate = componentModule.hublDataTemplate;
+   if (!Component) {
+     throw new Error(
+       `Module does not have a named Component export: ${foundPath}`
+@@ -3555,10 +3556,25 @@ async function renderLocalProjectModulePreview(moduleName, authedPortalId, authe
+     localFieldsJson,
+     fieldOverrides
+   );
++
++  if (hublDataTemplate) {
++    Object.entries(localFieldValues).forEach(([key, value]) => {
++      if (typeof value === "object") {
++        Object.entries(value).forEach(([key, value]) => {
++          hublDataTemplate = hublDataTemplate.replaceAll(`module.${key}`, value)
++        })
++      } else {
++        hublDataTemplate = hublDataTemplate.replaceAll(`module.${key}`, value)
++      }
++    })
++  }
++
++
+   const localModule = {
+     isJsModule: true,
+     schemaVersion: 2,
+     fields: localFieldsJson,
++    fieldValues: localFieldValues,
+     id: 1,
+     path: `@projects/${projectName}/${projectComponentPath}/components/modules/${moduleName}`,
+     hublDataTemplate
+@@ -3595,6 +3611,7 @@ async function renderLocalProjectModulePreview(moduleName, authedPortalId, authe
+   } else {
+     delete process.env.HUBAPI_DOMAIN_OVERRIDE;
+   }
++
+   const localRenderPlaceholders = findLocalRenderPlaceholders(templatePreview);
+   if (localRenderPlaceholders.length !== 1) {
+     throw new Error(
+@@ -4515,6 +4532,8 @@ async function modulePreviewRouteHandler(request2, response) {
+   );
+   const PREVIEWER_APP_PARAM = "hsPreviewerApp";
+   let fieldOverrides = {};
++
++  
+   if (request2.method === "POST" && request2.body) {
+     if (request2.query[PREVIEWER_APP_PARAM] === "module" && request2.body.module_data) {
+       fieldOverrides = request2.body.module_data;
+@@ -4550,6 +4569,10 @@ async function modulePreviewRouteHandler(request2, response) {
+       );
+     }
+   }
++  if (typeof fieldOverrides.menu === "number") {
++    fieldOverrides.menu = String(fieldOverrides.menu);
++  }
++
+   try {
+     const {
+       html: renderedHtml,
+@@ -5247,6 +5270,7 @@ var createDevServerRoutes = async (viteServer, appLocals, storybookPort) => {
+     devServerApp.use("/assets", expressStatic(distAssetsPath));
+   } else {
+     devServerApp.use("/local", appViteServer.middlewares);
++
+   }
+   devServerApp.use(viteServer.middlewares);
+   devServerApp.use("/api", createAppServerAPIRoutes_default());

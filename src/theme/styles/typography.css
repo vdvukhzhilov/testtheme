@@ -1,0 +1,190 @@
+@import './fonts.css';
+
+@theme {
+  --font-mono:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  --font-display:
+    colfax, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-body:
+    'PT Root UI', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --default-font-family: var(--font-body);
+}
+
+@utility display-2xl-bold {
+  @apply text-[72px] leading-[90px] tracking-[-0.02em] font-bold font-display;
+}
+
+@utility display-2xl-semibold {
+  @apply text-[72px] leading-[90px] tracking-[-0.02em] font-semibold font-display;
+}
+
+@utility display-2xl-medium {
+  @apply text-[72px] leading-[90px] tracking-[-0.02em] font-medium font-display;
+}
+
+@utility display-2xl-regular {
+  @apply text-[72px] leading-[90px] tracking-[-0.02em] font-normal font-display;
+}
+
+@utility display-xl-bold {
+  @apply text-[60px] leading-[72px] tracking-[-0.02em] font-bold font-display;
+}
+
+@utility display-xl-semibold {
+  @apply text-[60px] leading-[72px] tracking-[-0.02em] font-medium font-display;
+}
+
+@utility display-xl-medium {
+  @apply text-[60px] leading-[72px] tracking-[-0.02em] font-medium font-display;
+}
+
+@utility display-xl-regular {
+  @apply text-[60px] leading-[72px] tracking-[-0.02em] font-normal font-display;
+}
+
+@utility display-lg-bold {
+  @apply text-[48px] leading-[60px] tracking-[-0.02em] font-bold font-display;
+}
+
+@utility display-lg-semibold {
+  @apply text-[48px] leading-[60px] tracking-[-0.02em] font-medium font-display;
+}
+
+@utility display-lg-medium {
+  @apply text-[48px] leading-[60px] tracking-[-0.02em] font-medium font-display;
+}
+
+@utility display-lg-regular {
+  @apply text-[48px] leading-[60px] tracking-[-0.02em] font-normal font-display;
+}
+
+@utility display-md-bold {
+  @apply text-[36px] leading-[44px] tracking-[-0.02em] font-bold font-display;
+}
+
+@utility display-md-semibold {
+  @apply text-[36px] leading-[44px] tracking-[-0.02em] font-medium font-display;
+}
+
+@utility display-md-medium {
+  @apply text-[36px] leading-[44px] tracking-[-0.02em] font-medium font-display;
+}
+
+@utility display-md-regular {
+  @apply text-[36px] leading-[44px] tracking-[-0.02em] font-normal font-display;
+}
+
+@utility display-sm-bold {
+  @apply text-[30px] leading-[38px] tracking-normal font-bold font-display;
+}
+
+@utility display-sm-semibold {
+  @apply text-[30px] leading-[38px] tracking-normal font-medium font-display;
+}
+
+@utility display-sm-medium {
+  @apply text-[30px] leading-[38px] tracking-normal font-medium font-display;
+}
+
+@utility display-sm-regular {
+  @apply text-[30px] leading-[38px] tracking-normal font-normal font-display;
+}
+
+@utility display-xs-bold {
+  @apply text-[24px] leading-[32px] tracking-normal font-bold font-display;
+}
+
+@utility display-xs-semibold {
+  @apply text-[24px] leading-[32px] tracking-normal font-medium font-display;
+}
+
+@utility display-xs-medium {
+  @apply text-[24px] leading-[32px] tracking-normal font-medium font-display;
+}
+
+@utility display-xs-regular {
+  @apply text-[24px] leading-[32px] tracking-normal font-normal;
+}
+
+@utility typography-text-xl-bold {
+  @apply text-[20px] leading-[30px] tracking-normal font-bold font-body;
+}
+
+@utility typography-text-xl-semibold {
+  @apply text-[20px] leading-[30px] tracking-normal font-bold font-body;
+}
+
+@utility typography-text-xl-medium {
+  @apply text-[20px] leading-[30px] tracking-normal font-medium font-body;
+}
+
+@utility typography-text-xl-regular {
+  @apply text-[20px] leading-[30px] tracking-normal font-normal font-body;
+}
+
+@utility typography-text-lg-bold {
+  @apply text-[18px] leading-[28px] tracking-normal font-bold font-body;
+}
+
+@utility typography-text-lg-semibold {
+  @apply text-[18px] leading-[28px] tracking-normal font-bold font-body;
+}
+
+@utility typography-text-lg-medium {
+  @apply text-[18px] leading-[28px] tracking-normal font-medium font-body;
+}
+
+@utility typography-text-lg-regular {
+  @apply text-[18px] leading-[28px] tracking-normal font-normal font-body;
+}
+
+@utility typography-text-md-bold {
+  @apply text-[16px] leading-[24px] tracking-normal font-bold font-body;
+}
+
+@utility typography-text-md-semibold {
+  @apply text-[16px] leading-[24px] tracking-normal font-bold font-body;
+}
+
+@utility typography-text-md-medium {
+  @apply text-[16px] leading-[24px] tracking-normal font-medium font-body;
+}
+
+@utility typography-text-md-regular {
+  @apply text-[16px] leading-[24px] tracking-normal font-normal font-body;
+}
+
+@utility typography-text-sm-bold {
+  @apply text-[14px] leading-[20px] tracking-normal font-bold font-body;
+}
+
+@utility typography-text-sm-semibold {
+  @apply text-[14px] leading-[20px] tracking-normal font-bold font-body;
+}
+
+@utility typography-text-sm-medium {
+  @apply text-[14px] leading-[20px] tracking-normal font-medium font-body;
+}
+
+@utility typography-text-sm-regular {
+  @apply text-[14px] leading-[20px] tracking-normal font-normal;
+}
+
+@utility typography-text-xs-bold {
+  @apply text-[12px] leading-[18px] tracking-normal font-bold font-body;
+}
+
+@utility typography-text-xs-semibold {
+  @apply text-[12px] leading-[18px] tracking-normal font-bold font-body;
+}
+
+@utility typography-text-xs-medium {
+  @apply text-[12px] leading-[18px] tracking-normal font-medium font-body;
+}
+
+@utility typography-text-xs-regular {
+  @apply text-[12px] leading-[18px] tracking-normal font-normal font-body;
+}

@@ -1,0 +1,48 @@
+{
+  "name": "pt-root-ui",
+  "default": "Regular",
+  "fallback": "arial, sans-serif",
+  "variants": [
+    {
+      "name": "Regular",
+      "files": [
+        {
+          "file": "./PT-Root-UI_Regular.woff",
+          "format": "woff"
+        },
+        {
+          "file": "./PT-Root-UI_Regular.woff2",
+          "format": "woff2"
+        }
+      ],
+      "styles": {
+        "font-weight": 400
+      }
+    },
+    {
+      "name": "Medium",
+      "files": [
+        {
+          "file": "./PT-Root-UI_Medium.woff",
+          "format": "woff"
+        },
+        {
+          "file": "./PT-Root-UI_Medium.woff2",
+          "format": "woff2"
+        }
+      ],
+      "styles": {
+        "font-weight": 500
+      }
+    },
+    {
+      "name": "Bold",
+      "files": [
+        {
+          "file": "./PT-Root-UI_Bold.woff",
+          "format": "woff"
+        }
+      ]
+    }
+  ]
+}

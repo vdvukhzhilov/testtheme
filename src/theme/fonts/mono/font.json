@@ -1,0 +1,16 @@
+{
+  "name": "mono",
+  "default": "Regular",
+  "fallback": "arial, sans-serif",
+  "variants": [
+    {
+      "name": "Regular",
+      "files": [
+        {
+          "file": "./JetBrainsMono-Regular.woff2",
+          "format": "woff2"
+        }
+      ]
+    }
+  ]
+}

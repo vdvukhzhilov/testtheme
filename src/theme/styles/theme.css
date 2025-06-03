@@ -1,0 +1,39 @@
+@import './palette.css';
+
+@theme {
+  --default-ring-width: 2px;
+  --default-ring-color: var(--color-brand-500);
+  --default-ring-offset-width: 2px;
+}
+
+@theme {
+  --spacing-none: 0rem;
+  --spacing-2xs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 6px;
+  --spacing-md: 8px;
+  --spacing-lg: 12px;
+  --spacing-xl: 16px;
+  --spacing-2xl: 20px;
+  --spacing-3xl: 24px;
+  --spacing-4xl: 32px;
+  --spacing-5xl: 40px;
+  --spacing-6xl: 48px;
+  --spacing-7xl: 64px;
+  --spacing-8xl: 80px;
+  --spacing-9xl: 96px;
+  --spacing-10xl: 128px;
+  --spacing-11xl: 160px;
+
+  --container-2xs: 320px;
+  --container-xs: 384px;
+  --container-sm: 480px;
+  --container-md: 560px;
+  --container-lg: 640px;
+  --container-xl: 768px;
+  --container-2xl: 1024px;
+  --container-3xl: 1280px;
+  --container-4xl: 1440px;
+  --container-5xl: 1600px;
+  --container-6xl: 1920px;
+}

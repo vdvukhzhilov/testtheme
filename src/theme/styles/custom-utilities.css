@@ -1,0 +1,169 @@
+@utility allure-bg-primary {
+  @apply bg-base-white;
+
+  @variant dark {
+    @apply bg-gray-dark-mode-950;
+  }
+}
+
+@utility allure-bg-primary_hover {
+  @apply bg-gray-light-mode-50;
+
+  @variant dark {
+    @apply bg-gray-dark-mode-800;
+  }
+}
+
+@utility allure-border-secondary {
+  @apply border-gray-light-mode-200;
+
+  @variant dark {
+    @apply border-gray-dark-mode-800;
+  }
+}
+
+@utility text-secondary-700 {
+  color: var(--color-gray-light-mode-700);
+
+  @variant dark {
+    color: var(--color-gray-dark-mode-300);
+  }
+}
+
+@utility text-secondary-700_hover {
+  color: var(--color-gray-light-mode-800);
+
+  @variant dark {
+    color: var(--color-gray-dark-mode-200);
+  }
+}
+
+@utility text-primary-900 {
+  color: var(--color-gray-light-mode-900);
+
+  @variant dark {
+    color: var(--color-gray-dark-mode-50);
+  }
+}
+
+@utility button-primary-bg {
+  @apply bg-brand-600 hover:bg-brand-700;
+
+  @variant dark {
+    @apply bg-brand-600 hover:bg-brand-700;
+  }
+}
+
+@utility button-primary-border {
+  @apply border-transparent;
+}
+
+@utility button-primary-fg {
+  @apply text-base-white;
+
+  @variant dark {
+    @apply text-base-white;
+  }
+}
+
+@utility button-secondary-bg {
+  @apply bg-transparent hover:bg-gray-light-mode-50;
+
+  @variant dark {
+    @apply bg-transparent hover:bg-gray-dark-mode-900;
+  }
+}
+
+@utility button-secondary-fg {
+  @apply text-gray-light-mode-700 dark:text-gray-dark-mode-300;
+
+  @variant dark {
+    @apply text-gray-light-mode-800 dark:text-gray-dark-mode-100;
+  }
+}
+
+@utility button-secondary-border {
+  @apply border border-gray-light-mode-300 dark:border-gray-dark-mode-700;
+}
+
+@utility button-tertiary-fg {
+  @apply text-gray-light-mode-600 dark:text-gray-dark-mode-400;
+
+  @variant hover {
+    @apply text-gray-light-mode-700 dark:text-gray-dark-mode-200;
+  }
+}
+
+@utility allure-focus-ring {
+  @apply outline-2 outline-offset-1 outline-brand-500;
+}
+
+@utility skeuemorphic-gradient-border-* {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0px;
+    z-index: 0;
+    border-radius: calc(--value(--radius- *) - 1px);
+    border: 1px solid rgba(255, 255, 255, 0.122);
+  }
+}
+
+@utility shadow-skeuomorphic-button-primary {
+  @apply border border-transparent;
+  background-clip: padding-box;
+
+  &::after {
+    @apply transition-colors;
+
+    content: '';
+    position: absolute;
+    inset: 0px;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background:
+      linear-gradient(to bottom, #1018280d 0px, #1018282e 20%),
+      linear-gradient(
+        to bottom,
+        theme(--color-brand-600),
+        theme(--color-brand-600)
+      );
+  }
+
+  @variant hover {
+    &::after {
+      @apply transition-colors;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(16, 24, 40, 0.051) 0px,
+          rgba(16, 24, 40, 0.18) 20%
+        ),
+        linear-gradient(
+          to bottom,
+          theme(--color-brand-700),
+          theme(--color-brand-700)
+        );
+    }
+  }
+}
+
+/* box-shadow:
+  0px 1px 2px 0px #1018280d,
+  0px -2px 0px 0px #1018280d inset,
+  0px 0px 0px 1px #1018282e inset; */
+
+@utility allure-popover {
+  @apply min-w-[240px] allure-bg-primary border allure-border-secondary rounded-md shadow-lg;
+}
+
+@utility fg-quinary-400 {
+  @apply text-gray-light-mode-300;
+
+  @variant dark {
+    @apply text-gray-dark-mode-500;
+  }
+}

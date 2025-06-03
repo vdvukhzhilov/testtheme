@@ -1,0 +1,81 @@
+.container-fluid {
+  @apply w-full flex flex-col;
+}
+
+.row-fluid {
+  @apply w-full grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.row-fluid > *:only-child {
+  @apply col-span-12;
+}
+
+.row-fluid .span1 {
+  @apply col-span-1;
+}
+
+.row-fluid .span2 {
+  @apply col-span-2;
+}
+
+.row-fluid .span3 {
+  @apply col-span-3;
+}
+
+.row-fluid .span4 {
+  @apply col-span-4;
+}
+
+.row-fluid .span5 {
+  @apply col-span-5;
+}
+
+.row-fluid .span6 {
+  @apply col-span-6;
+}
+
+.row-fluid .span7 {
+  @apply col-span-7;
+}
+
+.row-fluid .span8 {
+  @apply col-span-8;
+}
+
+.row-fluid .span9 {
+  @apply col-span-9;
+}
+
+.row-fluid .span10 {
+  @apply col-span-10;
+}
+
+.row-fluid .span11 {
+  @apply col-span-11;
+}
+
+.row-fluid .span12 {
+  @apply col-span-12;
+}
+
+.row-fluid .span1,
+.row-fluid .span2,
+.row-fluid .span3,
+.row-fluid .span4,
+.row-fluid .span5,
+.row-fluid .span6,
+.row-fluid .span7,
+.row-fluid .span8,
+.row-fluid .span9,
+.row-fluid .span10,
+.row-fluid .span11,
+.row-fluid .span12 {
+  min-height: 1px;
+  width: 100%;
+}
+
+
+.hs_cos_wrapper_type_rich_text {
+  @apply prose;
+}

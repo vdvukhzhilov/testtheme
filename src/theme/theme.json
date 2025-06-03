@@ -1,0 +1,5 @@
+{
+  "label": "allure-testops-hubspot-theme",
+  "preview_path": "./templates/layouts/base.hubl.html",
+  "custom_fonts": ["./fonts/colfax", "./fonts/mono", "./fonts/pt-root-ui"]
+}

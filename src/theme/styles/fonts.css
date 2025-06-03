@@ -1,0 +1,78 @@
+@font-face {
+  font-family: colfax;
+  font-weight: 400;
+  font-display: swap;
+  src: local("ColfaxWebRegular"), url("//qameta.io/assets/ColfaxWebRegular.7430e81b.woff") format("woff"),
+    url("//qameta.io/assets/ColfaxWebRegular.fa58716a.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: colfax;
+  font-weight: 500;
+  font-display: swap;
+  src: local("ColfaxWebMedium"), url("//qameta.io/assets/ColfaxWebMedium.531eca0f.woff") format("woff"),
+    url("//qameta.io/assets/ColfaxWebMedium.77666568.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: colfax;
+  font-weight: 600;
+  font-display: swap;
+  src: local("ColfaxWebMedium"), url("//qameta.io/assets/ColfaxWebMedium.531eca0f.woff") format("woff"),
+    url("//qameta.io/assets/ColfaxWebMedium.77666568.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: colfax;
+  font-weight: 700;
+  font-display: swap;
+  src: local("ColfaxWebMedium"), url("//qameta.io/assets/ColfaxWebMedium.531eca0f.woff") format("woff"),
+    url("//qameta.io/assets/ColfaxWebMedium.77666568.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: colfax;
+  font-weight: 800;
+  font-display: swap;
+  src: local("ColfaxWebBold"), url("//qameta.io/assets/ColfaxWebBold.27998197.woff") format("woff"),
+    url("//qameta.io/assets/ColfaxWebBold.cf73934e.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: colfax;
+  font-weight: 900;
+  font-display: swap;
+  src: local("ColfaxWebBold"), url("//qameta.io/assets/ColfaxWebBold.27998197.woff") format("woff"),
+    url("//qameta.io/assets/ColfaxWebBold.cf73934e.woff2") format("woff2");
+}
+@font-face {
+  font-family: "PT Root UI";
+  font-weight: 400;
+  font-display: swap;
+  src: local("PTRootUIRegular"), url("//qameta.io/assets/PT-Root-UI_Regular.fc618586.woff") format("woff"),
+    url("//qameta.io/assets/PT-Root-UI_Regular.d7e390c0.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "PT Root UI";
+  font-weight: 500;
+  font-display: swap;
+  src: local("PTRootUIMedium"), url("//qameta.io/assets/PT-Root-UI_Medium.d1741d99.woff") format("woff"),
+    url("//qameta.io/assets/PT-Root-UI_Medium.3f51780e.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "PT Root UI";
+  font-weight: 700;
+  font-display: swap;
+  src: local("PTRootUIBold"), url("//qameta.io/assets/PT-Root-UI_Bold.bbef5927.woff") format("woff"),
+    url("//qameta.io/assets/Psychographics.0da05e7c.svg") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 400;
+  font-display: swap;
+  src: local("JetBrainsMonoRegular"),
+    url("//qameta.io/assets/JetBrainsMono-Regular.a9cb1cd8.woff2") format("woff2");
+}
